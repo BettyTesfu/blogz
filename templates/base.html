@@ -1,2 +1,15 @@
-Main Blog Page    Add a Blog Entry 
-{% block content %} {% endblock %} 
+<html>
+    <head>
+        <title>{{title}}</title>
+    </head>
+<body>
+    <nav>
+        <a href="http://localhost:5000/blog">Main Blog Page</a>
+        &nbsp;&nbsp;
+        <a href="http://localhost:5000/newpost">Add a Blog Entry</a>
+    </nav>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
