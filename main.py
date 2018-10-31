@@ -70,7 +70,7 @@ class User(db.Model):
 
 
 
-allowed_routes = ['login','signup','blog','index','logout']
+#allowed_routes = ['login','signup','blog','index','logout']
 
 
 
@@ -78,7 +78,7 @@ allowed_routes = ['login','signup','blog','index','logout']
 
 def require_login():
 
-    allowed_routes = ['login','signup','blog','index','logout']
+    allowed_routes = ['login','signup','blog','index']
 
     if request.endpoint not in allowed_routes and 'username' not in session:
 
@@ -105,7 +105,7 @@ def login():
             session['username'] = username
 
             flash("Logged in")
-            return redirect ('/newpost')
+            return redirect('/newpost')
 
             #return render_template('newpost.html',title="Blogz!")
 
@@ -182,7 +182,7 @@ def signup():
                 session['username'] = username
 
                 #return render_template('newpost.html',title="Blogz!")
-                return redirect ('/newpost')
+                return redirect('/newpost')
 
             else:
 
@@ -194,7 +194,7 @@ def signup():
 
 
 
-@app.route('/logout')
+@app.route('/logout', methods=['GET'])
 
 def logout():
 
